@@ -20,8 +20,8 @@
     font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
   .wrap{max-width:1240px;margin:0 auto;padding:34px 22px 70px}
   header{border-bottom:3px solid var(--booth);padding-bottom:16px;margin-bottom:6px}
-  h1{margin:0 0 4px;font-size:26px;letter-spacing:-.02em}
-  .sub{color:var(--muted);font-size:13.5px}
+  h1{margin:0 0 4px;font-size:28px;line-height:1.2;letter-spacing:-.01em}
+  .sub{color:#6e6e73;font-size:14px;margin:0 0 18px}
   h2{font-size:19px;margin:36px 0 3px;letter-spacing:-.01em}
   .daymeta{color:var(--muted);font-size:12.5px;margin-bottom:12px}
 
@@ -87,6 +87,23 @@
   .avail{color:var(--muted);font-weight:400;font-style:italic}
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
   @media print{body{background:#fff}.wrap{padding:0}table{box-shadow:none}h2{page-break-after:avoid}}
+
+  .focusbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
+    border-radius:11px;padding:11px 14px;margin:0 0 18px;position:sticky;top:0;z-index:20;
+    box-shadow:0 1px 3px rgba(20,32,44,.05)}
+  .focusbar label{font-size:12px;font-weight:700;color:var(--muted)}
+  .focusbar select{font:inherit;font-size:13.5px;padding:6px 9px;border:1px solid #d6d9dd;border-radius:8px;background:#fff}
+  .focusbar button{font:inherit;font-size:12.5px;padding:5px 11px;border:1px solid #d6d9dd;background:#fff;
+    border-radius:8px;cursor:pointer}
+  .focushint{font-size:12.5px;color:var(--muted)}
+  body.focus td{opacity:.26;transition:opacity .15s}
+  body.focus td.time,body.focus th{opacity:1}
+  body.focus td.hit{opacity:1;box-shadow:inset 0 0 0 2px #1A4A5D;border-radius:4px}
+  body.focus td.hit .lbl{text-decoration:none}
+  body.focus td.book .bk{opacity:.35}
+  body.focus td.book .bk.hit{opacity:1;font-weight:700}
+  body.focus h2{opacity:.55}
+  @media (max-width:760px){.focusbar{position:static}}
 .nav{margin:0 0 18px;font-size:13px}.nav a{color:#0f7b8a;text-decoration:none;margin-right:14px;font-weight:600}.nav a:hover{text-decoration:underline}@media (max-width:760px){.wrap{padding:18px 12px 50px}h1{font-size:20px}h2{font-size:17px;margin-top:28px}.sub{font-size:12.5px}table{box-shadow:none;background:transparent;table-layout:auto;border-radius:0}colgroup,col{display:none}table,tbody,tr,td{display:block;width:100%}table tr:first-child{display:none}tr{background:#fff;border-radius:6px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 3px rgba(20,32,45,.10)}td{border:none;border-bottom:1px solid var(--line);font-size:13.5px}tr td:last-child{border-bottom:none}td.off{display:none}tr.empty-row{display:none}td.time{background:#16202b;color:#fff;font-size:12px;padding:7px 12px}td.booth,td.demo,td.sim,td.event,td.setup{border-left-width:4px;border-left-style:solid}.grid2{grid-template-columns:1fr}.callout{font-size:12.5px;padding:11px 13px}}</style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1A4A5D">
@@ -94,17 +111,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="AABIP Targets">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" href="favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="icon" type="image/png" href="favicon.png?v=2" sizes="32x32">
 </head>
 <body>
 <div class="wrap">
 <div class="nav"><a href="index.html">Home</a><a href="aabip.html">Target list</a><a href="aabip-staffing.html" style="opacity:.55">Calendar</a><a href="aabip-dinner.html">Dinner attendees</a><a href="aabip-info.html">Event info</a></div>
 
-<header>
-  <h1>AABIP 2026 — Calendar</h1>
+<h1>AABIP 2026 — Calendar</h1>
   <div class="sub">August 19–22, 2026 · Hyatt Regency Denver at Colorado Convention Center · Booth 20-21 · All times Mountain</div>
-</header>
+<div class="focusbar"><label for="mefilter">Show my schedule:</label><select id="mefilter"><option value="">Everyone &mdash; no highlight</option><option value="0">Will</option><option value="1">Chris M.</option><option value="2">Collin</option><option value="3">Neil</option><option value="4">Taylor</option><option value="5">Karey Gill</option><option value="6">Matt B. (Matthew T. Basile)</option><option value="7">Meredith Hassett</option><option value="8">TJ Dunham</option><option value="9">Caroline Farley</option><option value="10">Curtis Zeleskey</option><option value="11">Matthew Elkins</option><option value="12">Tim Welch</option></select><span class="focushint" id="focushint"></span><button type="button" id="focusclear" style="display:none">Clear</button></div>
 
 <!-- ===================== WEDNESDAY ===================== -->
 <h2>Wednesday, August 19 — Setup</h2>
@@ -289,6 +305,53 @@ Built from the AABIP 2026 published exhibition hours and the Maverix activity ca
 </footer>
 
 </div>
+
+<script>(function(){
+ var REPS=[{"s": "Will", "b": ""}, {"s": "Chris M.", "b": ""}, {"s": "Collin", "b": ""}, {"s": "Neil", "b": ""}, {"s": "Taylor", "b": ""}, {"s": "Karey", "b": "Karey Gill"}, {"s": "Matt B.", "b": "Matthew T. Basile"}, {"s": "Meredith", "b": "Meredith Hassett"}, {"s": "TJ", "b": "TJ Dunham"}, {"s": "", "b": "Caroline Farley"}, {"s": "", "b": "Curtis Zeleskey"}, {"s": "", "b": "Matthew Elkins"}, {"s": "", "b": "Tim Welch"}];
+ var sel=document.getElementById('mefilter'),hint=document.getElementById('focushint'),
+     clr=document.getElementById('focusclear');
+ if(!sel)return;
+ function parts(t){return (t||'').split(',').map(function(x){
+   return x.replace(/\(.*?\)/g,'').trim();}).filter(Boolean);}
+ function clear(){
+   document.body.classList.remove('focus');
+   [].forEach.call(document.querySelectorAll('.hit'),function(n){n.classList.remove('hit');});
+   hint.textContent=''; clr.style.display='none';
+ }
+ function apply(){
+   clear();
+   var i=sel.value; if(i==='')return;
+   var r=REPS[+i], shifts=0, booked=0;
+   if(r.s){
+     [].forEach.call(document.querySelectorAll('td'),function(td){
+       var ok=[].some.call(td.querySelectorAll('.ppl'),function(p){
+         return parts(p.textContent).indexOf(r.s)>-1;});
+       if(ok){td.classList.add('hit');shifts++;}
+     });
+   }
+   if(r.b){
+     [].forEach.call(document.querySelectorAll('.bk'),function(bk){
+       var rp=bk.querySelector('.rp');
+       if(rp&&rp.textContent.replace(/^Rep:\s*/,'').trim()===r.b){
+         bk.classList.add('hit'); booked++;
+         var td=bk.closest('td'); if(td)td.classList.add('hit');
+       }
+     });
+   }
+   document.body.classList.add('focus');
+   var bits=[];
+   bits.push(shifts+(shifts===1?' shift':' shifts'));
+   if(r.b)bits.push(booked+(booked===1?' booked physician':' booked physicians')+' in your territory');
+   hint.textContent=bits.join('  ·  ')+(shifts+booked?'':'  —  nothing scheduled');
+   clr.style.display='';
+   try{localStorage.setItem('aabip_me',sel.value);}catch(e){}
+ }
+ sel.addEventListener('change',apply);
+ clr.addEventListener('click',function(){sel.value='';clear();try{localStorage.removeItem('aabip_me');}catch(e){}});
+ try{var sv=localStorage.getItem('aabip_me');
+     if(sv!==null&&REPS[+sv]){sel.value=sv;apply();}}catch(e){}
+})();</script>
+
 <script>(function(){document.querySelectorAll('tr').forEach(function(r){var real=[].slice.call(r.children).filter(function(c){return c.tagName==='TD'&&!c.classList.contains('time')&&!c.classList.contains('off');});if(!real.length&&r.querySelector('td.time'))r.classList.add('empty-row');});})();</script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
