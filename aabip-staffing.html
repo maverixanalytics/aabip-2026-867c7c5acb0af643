@@ -88,7 +88,8 @@
   footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
   @media print{body{background:#fff}.wrap{padding:0}table{box-shadow:none}h2{page-break-after:avoid}}
 
-  .focusbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
+  .topnote{background:#fff;border:1px solid #e5e5ea;border-left:4px solid #1A4A5D;border-radius:10px;padding:12px 15px;margin:0 0 14px;font-size:14px;line-height:1.55;color:#1d1d1f}.topnote strong{font-weight:700}@media (max-width:760px){.topnote{font-size:13px;padding:11px 13px;margin-bottom:12px}}
+.focusbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
     border-radius:11px;padding:11px 14px;margin:0 0 18px;position:sticky;top:0;z-index:20;
     box-shadow:0 1px 3px rgba(20,32,44,.05)}
   .focusbar label{font-size:12px;font-weight:700;color:var(--muted)}
@@ -120,6 +121,7 @@
 
 <h1>AABIP 2026 — Calendar</h1>
   <div class="sub">August 19–22, 2026 · Hyatt Regency Denver at Colorado Convention Center · Booth 20-21 · All times Mountain</div>
+<div class="topnote"><strong>If your physician is booked for a demo, please attend.</strong> If that leaves the booth uncovered, text the conference text chain and we&rsquo;ll cover for you.</div>
 <div class="focusbar"><label for="mefilter">Show my schedule:</label><select id="mefilter"><option value="">Everyone &mdash; no highlight</option><option value="0">Chris M.</option><option value="1">Collin</option><option value="2">Karey</option><option value="3">Matt B.</option><option value="4">Meredith</option><option value="5">Neil</option><option value="6">Taylor</option><option value="7">TJ</option><option value="8">Will</option></select><span class="focushint" id="focushint"></span><button type="button" id="focusclear" style="display:none">Clear</button></div>
 
 <!-- ===================== WEDNESDAY ===================== -->
