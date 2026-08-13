@@ -80,7 +80,11 @@ Confirm before you rely on it for follow-up.</div>
      q=document.getElementById('q'),cnt=document.getElementById('cnt'),
      none=document.getElementById('none'),ths=[].slice.call(tb.tHead.rows[0].cells),
      sk=0,sd=1;
- function txt(r,i){return (r.cells[i].textContent||'').trim().toLowerCase();}
+ function txt(r,i){var c=r.cells[i],n=c.querySelector('.nm');
+   /* Read the name span, not the whole cell: the cell also holds the "on target
+      list" and "check" chips, and folding those into the key made every flagged
+      row sort under the chip text instead of the surname. */
+   return ((n?n.textContent:c.textContent)||'').trim().toLowerCase();}
  function sortBy(k){
    var f=(k===0)?function(r){var p=txt(r,0).split(/\s+/);return p[p.length-1]+' '+p[0];}
                 :function(r){return txt(r,k);};
