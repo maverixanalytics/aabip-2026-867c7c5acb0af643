@@ -80,11 +80,16 @@ Confirm before you rely on it for follow-up.</div>
      q=document.getElementById('q'),cnt=document.getElementById('cnt'),
      none=document.getElementById('none'),ths=[].slice.call(tb.tHead.rows[0].cells),
      sk=0,sd=1;
+ var CRED=/(?:[,\s]+(?:M\.?D\.?|D\.?O\.?|Ph\.?D\.?|MBBS|MBChB|FCCP|FACP|FRCP|DAABIP|DABIP|M\.?P\.?H\.?|M\.?B\.?A\.?|M\.?Sc\.?|MSCE|R\.?N\.?|N\.?P\.?|PA-?C|F\.?A\.?C\.?S\.?|ATSF))+[\s.,]*$/i;
  function txt(r,i){var c=r.cells[i],n=c.querySelector('.nm');
    /* Read the name span, not the whole cell: the cell also holds the "on target
       list" and "check" chips, and folding those into the key made every flagged
-      row sort under the chip text instead of the surname. */
-   return ((n?n.textContent:c.textContent)||'').trim().toLowerCase();}
+      row sort under the chip text instead of the surname. Strip trailing
+      credentials too, or "Ashutosh Sachdeva MD" sorts on "md" and lands between
+      Majid and Meena. Mirrors namekey.py, which does the same at build time. */
+   var t=((n?n.textContent:c.textContent)||'').trim();
+   var prev=null;while(prev!==t){prev=t;t=t.replace(CRED,'').trim();}
+   return t.toLowerCase();}
  function sortBy(k){
    var f=(k===0)?function(r){var p=txt(r,0).split(/\s+/);return p[p.length-1]+' '+p[0];}
                 :function(r){return txt(r,k);};
