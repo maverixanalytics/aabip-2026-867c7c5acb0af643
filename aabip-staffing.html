@@ -123,7 +123,7 @@
   body.focus td.book .bk.hit{opacity:1;font-weight:700}
   body.focus h2{opacity:.55}
   @media (max-width:760px){.focusbar{position:static}}
-.nav{margin:0 0 18px;font-size:13px}.nav a{color:#0f7b8a;text-decoration:none;margin-right:14px;font-weight:600;white-space:nowrap;display:inline-block}.nav a:hover{text-decoration:underline}@media (max-width:760px){.wrap{padding:18px 12px 50px}h1{font-size:20px}h2{font-size:17px;margin-top:28px}.sub{font-size:12.5px}table{box-shadow:none;background:transparent;table-layout:auto;border-radius:0}colgroup,col{display:none}table,tbody,tr,td{display:block;width:100%}table tr:first-child{display:none}tr{background:#fff;border-radius:6px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 3px rgba(20,32,45,.10)}td{border:none;border-bottom:1px solid var(--line);font-size:13.5px}tr td:last-child{border-bottom:none}td.off{display:none}tr.empty-row{display:none}td.time{background:#16202b;color:#fff;font-size:12px;padding:7px 12px}td.booth,td.demo,td.sim,td.event,td.setup{border-left-width:4px;border-left-style:solid}td.mtg[style]{height:auto!important}td.mtg{border-left-width:4px;border-left-style:solid;padding:9px 11px}.mtslot{position:static!important;height:auto!important;left:auto;right:auto;margin-bottom:6px}.mtslot:last-child{margin-bottom:0}.grid2{grid-template-columns:1fr}.callout{font-size:12.5px;padding:11px 13px}}</style>
+.nav{margin:0 0 18px;font-size:13px}.nav a{color:#0f7b8a;text-decoration:none;margin-right:14px;font-weight:600;white-space:nowrap;display:inline-block}.nav a:hover{text-decoration:underline}details.dayblock>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;-webkit-tap-highlight-color:transparent}details.dayblock>summary::-webkit-details-marker{display:none}details.dayblock>summary>h2{flex:1 1 auto;min-width:0}details.dayblock>summary:hover>h2{color:#0f7b8a}details.dayblock>summary::after{content:'';flex:none;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s}details.dayblock[open]>summary::after{transform:rotate(-135deg)}details.dayblock:not([open])>summary{padding-bottom:11px;border-bottom:1px solid var(--line)}.dtag{flex:none;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:11px;padding:2px 9px}details.dayblock[open] .dtag{display:none}@media print{details.dayblock>summary::after,.dtag{display:none}}@media (max-width:760px){.wrap{padding:18px 12px 50px}h1{font-size:20px}h2{font-size:17px;margin-top:28px}.sub{font-size:12.5px}table{box-shadow:none;background:transparent;table-layout:auto;border-radius:0}colgroup,col{display:none}table,tbody,tr,td{display:block;width:100%}table tr:first-child{display:none}tr{background:#fff;border-radius:6px;margin-bottom:10px;overflow:hidden;box-shadow:0 1px 3px rgba(20,32,45,.10)}td{border:none;border-bottom:1px solid var(--line);font-size:13.5px}tr td:last-child{border-bottom:none}td.off{display:none}tr.empty-row{display:none}td.time{background:#16202b;color:#fff;font-size:12px;padding:7px 12px}td.booth,td.demo,td.sim,td.event,td.setup{border-left-width:4px;border-left-style:solid}td.mtg[style]{height:auto!important}td.mtg{border-left-width:4px;border-left-style:solid;padding:9px 11px}.mtslot{position:static!important;height:auto!important;left:auto;right:auto;margin-bottom:6px}.mtslot:last-child{margin-bottom:0}.grid2{grid-template-columns:1fr}.callout{font-size:12.5px;padding:11px 13px}}</style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1A4A5D">
 <meta name="mobile-web-app-capable" content="yes">
@@ -142,8 +142,10 @@
 <div class="topnote"><strong>If your physician is booked for a demo, please attend.</strong> If that leaves the booth uncovered, text the conference text chain and we&rsquo;ll cover for you.</div>
 <div class="focusbar"><label for="mefilter">Show my schedule:</label><select id="mefilter"><option value="">Everyone &mdash; no highlight</option><option value="0">Chris M.</option><option value="1">Collin</option><option value="2">Karey</option><option value="3">Matt B.</option><option value="4">Meredith</option><option value="5">Neil</option><option value="6">Taylor</option><option value="7">TJ</option><option value="8">Will</option></select><span class="focushint" id="focushint"></span><button type="button" id="focusclear" style="display:none">Clear</button></div>
 
+
 <!-- ===================== WEDNESDAY ===================== -->
-<h2>Wednesday, August 19 — Setup</h2>
+<details class="dayblock">
+<summary><h2>Wednesday, August 19 — Setup</h2><span class="dtag">Setup</span></summary>
 <div class="daymeta">Exhibition set-up 12:00–7:00 PM · Decoration only 7:00–10:00 PM · All crates and packaging clear of the hall by 7:00 PM</div>
 <table>
 <colgroup><col class="c-time"><col><col></colgroup>
@@ -160,8 +162,11 @@
 </tr>
 </table>
 
+</details>
+
 <!-- ===================== THURSDAY ===================== -->
-<h2>Thursday, August 20 — Day 1</h2>
+<details class="dayblock">
+<summary><h2>Thursday, August 20 — Day 1</h2><span class="dtag">18 booked</span></summary>
 <div class="daymeta">Exhibition 9:00 AM–4:00 PM · Demo Room 8:00 AM–5:00 PM · Cryo Dinner 7:00–9:00 PM · 18 physicians booked into the demo room</div>
 <table>
 <colgroup><col class="k-time"><col class="k-booth"><col class="k-demo"><col class="k-book"><col class="k-mtg"></colgroup>
@@ -178,8 +183,11 @@
   <tr><td class="time">7:00&ndash;9:00</td><td class="event"><span class="lbl">Cryo Dinner &mdash; Tamayo</span><span class="ppl">All hands</span><span class="n">Will opens &middot; Matt B. and Neil carry the cryo depth</span></td><td class="off"></td><td class="book"></td><td class="mtg"></td></tr>
 </table>
 
+</details>
+
 <!-- ===================== FRIDAY ===================== -->
-<h2>Friday, August 21 — Day 2 <span style="font-weight:400;font-size:14px;color:var(--muted)">(heaviest day)</span></h2>
+<details class="dayblock" open>
+<summary><h2>Friday, August 21 — Day 2 <span style="font-weight:400;font-size:14px;color:var(--muted)">(heaviest day)</span></h2><span class="dtag">9 booked</span></summary>
 <div class="daymeta">Exhibition 9:30 AM–7:30 PM (through the reception) · Demo Room 8:00 AM–5:00 PM · Three simulation sessions · Cryobiopsy panel · Reception 6:00–7:30 PM · 9 physicians booked into the demo room</div>
 <table>
 <colgroup><col class="k-time"><col class="k-booth"><col class="k-demo"><col class="k-book"><col class="k-sim"><col class="k-mtg"></colgroup>
@@ -197,8 +205,11 @@
   <tr><td class="time">6:00&ndash;7:30</td><td class="event"><span class="lbl">President&rsquo;s Welcome Reception &mdash; in the Exhibition Area</span><span class="ppl">All hands</span><span class="n">Highest-traffic window of the show</span></td><td class="off"></td><td class="book"></td><td class="off"></td><td class="mtg"></td></tr>
 </table>
 
+</details>
+
 <!-- ===================== SATURDAY ===================== -->
-<h2>Saturday, August 22 — Day 3 &amp; Teardown</h2>
+<details class="dayblock" open>
+<summary><h2>Saturday, August 22 — Day 3 &amp; Teardown</h2><span class="dtag">Day 3 &amp; Teardown</span></summary>
 <div class="daymeta">Exhibition 9:00 AM–3:00 PM · Quiet dismantle 3:00–4:15 PM · Full dismantle 4:30–6:00 PM · No demo room</div>
 <table>
 <colgroup><col class="k-time"><col class="k-booth"><col class="k-demo"><col class="k-mtg"></colgroup>
@@ -210,6 +221,7 @@
   <tr><td class="time">4:30&ndash;6:00</td><td class="setup"><span class="lbl">Full Dismantle</span><span class="ppl tbd">Crew TBD</span><span class="n">Crate-out, freight paperwork, lead-retrieval return</span></td><td class="mtg"></td></tr>
 </table>
 
+</details>
 <!-- ===================== BY REP ===================== -->
 <h2>Where Each Rep Works</h2>
 <div class="grid2">
@@ -299,6 +311,7 @@ Built from the AABIP 2026 published exhibition hours and the Maverix activity ca
 })();</script>
 
 <script>(function(){document.querySelectorAll('tr').forEach(function(r){var real=[].slice.call(r.children).filter(function(c){return c.tagName==='TD'&&!c.classList.contains('time')&&!c.classList.contains('off');});if(!real.length&&r.querySelector('td.time'))r.classList.add('empty-row');});})();</script>
+<script>(function(){var d=document.querySelectorAll('details.dayblock'),w=[];addEventListener('beforeprint',function(){w=[];d.forEach(function(x){w.push(x.open);x.open=true;});});addEventListener('afterprint',function(){d.forEach(function(x,i){x.open=w[i];});});})();</script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}</script>
 </body>
 </html>
